@@ -1,4 +1,5 @@
 # app.py
+
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
@@ -9,13 +10,13 @@ import database
 
 # 1. ASETUKSET JA TIETOKANNAN ALUSTUS
 st.set_page_config(page_title="Rotterdam Oil Tracker", layout="wide")
-st.title("🚢 Rotterdam Oil Tanker Tracker")
+st.title(" Rotterdam Oil Tankkeri Tracker")
 st.markdown("Reaaliaikainen seuranta ja automaattinen historiadatan keräys (SQLite).")
 
 database.init_db()
 
 # 2. DATAN HAKU
-@st.cache_data(ttl=60, show_spinner="📡 Ladataan AIS-virtaa (10s)...")
+@st.cache_data(ttl=60, show_spinner=" Ladataan AIS-virtaa (10s)...")
 def fetch_data():
     return api.get_and_process_data()
 
@@ -29,7 +30,7 @@ if not processed_data.empty:
     current_oil = processed_data['estimated_cargo'].sum()
     database.save_snapshot_if_needed(current_ships, current_oil)
     
-    st.subheader("📊 Päivän tilannekuva vs. Todellinen historiallinen keskiarvo")
+    st.subheader(" Päivän tilannekuva vs. Todellinen historiallinen keskiarvo")
     
     hist_ships, hist_oil = database.get_historical_averages()
     ship_diff_pct = ((current_ships - hist_ships) / hist_ships * 100) if hist_ships > 0 else 0
