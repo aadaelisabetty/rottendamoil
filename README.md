@@ -17,6 +17,7 @@ graph TD
     C --> E[Folium GIS-Kartta]
     C --> F[KPI Mittaristot]
     C --> G[Trendikaaviot]
+```
 #
 #Bounding box & websockets = valikoitui koska olisi liian hidasta ja kuormittavaa ladata livelaivaliikenne kaikkialta. Aisstream.io rajapinta on hyvä kun isnne voi lähettää bounding box koordinaatit, eli pakotan suodattimen datalle jo palvelimen päässä. Suojaan omaa konettani ja sen prosessoreita näin. asynciolla sitten ylläpidän yhteydet jotta reaaliaikaisuus on mahdollista
 # GEOspatial: Folium ja streamliy-folium= Pelkät leveys ja pituuspiirit näyttää tyhjältä ja siksi folium + se hyödyntää leaflet.js kirjastoa joka mahdollistaa dynaamisten GIS karttojen luonnon pelkällä pYthonilla. Laivojen sijainnit ja niiden about lasketun öljylastin suoraan karttamerkkeihin joka tekee datasta heti tulkittavaa.
