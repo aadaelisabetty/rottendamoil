@@ -53,7 +53,11 @@ def get_historical_averages():
     
     return avg_ships, avg_oil
 
-def get_total_db_rows(): """Palauttaa tietokannan rivien 
-    kokonaismäärän.""" conn = sqlite3.connect('history.db') c = 
-    conn.cursor() c.execute("SELECT COUNT(*) FROM port_stats") count 
-    = c.fetchone()[0] conn.close() return count
+def get_total_db_rows():
+ """Palauttaa tietokannan rivien kokonaismäärän."""
+ conn = sqlite3.connect('history.db')
+ c = conn.cursor()
+ c.execute("SELECT COUNT(*) FROM port_stats")
+ count = c.fetchone()[0]
+ conn.close()
+ return count
